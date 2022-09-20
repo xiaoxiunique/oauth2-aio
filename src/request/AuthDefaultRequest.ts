@@ -89,11 +89,7 @@ export abstract class AuthDefaultRequest extends AuthRequest {
 
   protected async doPostAuthorizationCode(code: string): Promise<any> {
     let r: AxiosResponse<any> = {} as any;
-    try {
-      r = await axios.post(this.accessTokenEndpoint(code));
-    } catch (e) {
-      throw new Error('doPostAuthorizationCode error' + e);
-    }
+    r = await axios.post(this.accessTokenEndpoint(code));
     return r;
   }
 

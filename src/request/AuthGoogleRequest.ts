@@ -44,19 +44,15 @@ export class AuthGoogleRequest extends AuthDefaultRequest {
   protected async getUserInfo(authToken: AuthToken): Promise<GoogleUserInfo> {
     let userInfoRes: AxiosResponse<any> = {} as any;
 
-    try {
-      userInfoRes = await axios.post(
-        this.userInfoEndpoint(authToken),
-        {},
-        {
-          headers: {
-            Authorization: `Bearer ${authToken.accessToken}`,
-          },
-        }
-      );
-    } catch (e) {
-      throw new Error('get userinfo error' + e);
-    }
+    userInfoRes = await axios.post(
+      this.userInfoEndpoint(authToken),
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${authToken.accessToken}`,
+        },
+      }
+    );
     return userInfoRes && (userInfoRes.data as GoogleUserInfo);
   }
 
@@ -69,12 +65,8 @@ export class AuthGoogleRequest extends AuthDefaultRequest {
     url.searchParams.append('scope', this.config.scopes.join(' '));
     url.searchParams.append('state', state);
     url.searchParams.append('access_type', 'offline');
-    url.searchParams.append('prompt', 'select_account');
+    url.searchParams.append('prompt', 'consent');
     return url.toString();
-  }
-
-  protected userInfoEndpoint(authToken: AuthToken): string {
-    return super.userInfoEndpoint(authToken);
   }
 
   // TODO: check response
