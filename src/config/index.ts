@@ -1,3 +1,3 @@
-export * from './AuthConfig'
-export * from './AuthSource'
-export * from './AuthDefaultSource'
+export * from './AuthConfig';
+export * from './AuthSource';
+export * from './AuthDefaultSource';

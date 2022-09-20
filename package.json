@@ -22,6 +22,6 @@
     "prepare": "yarn run compile",
     "pretest": "yarn run compile",
     "posttest": "yarn run lint",
-    "release": "gts check && npm test && npm publish",
+    "release": "npm publish"
   }
 }

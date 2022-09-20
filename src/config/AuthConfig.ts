@@ -1,5 +1,4 @@
-export interface AuthConfig  {
-
+export interface AuthConfig {
   /**
    * oauth2 client id
    */

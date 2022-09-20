@@ -1,5 +1,4 @@
 export abstract class AuthSource {
-
   /**
    * 授权 API
    */

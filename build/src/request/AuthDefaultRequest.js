@@ -15,10 +15,10 @@ class AuthDefaultRequest extends AuthRequest_1.AuthRequest {
      */
     authorize(state) {
         const url = new URL(this.source.authorizeApiEndpoint);
-        url.searchParams.append("client_id", this.config.clientId);
-        url.searchParams.append("redirect_uri", this.config.redirectUri);
-        url.searchParams.append("response_type", "code");
-        url.searchParams.append("state", state);
+        url.searchParams.append('client_id', this.config.clientId);
+        url.searchParams.append('redirect_uri', this.config.redirectUri);
+        url.searchParams.append('response_type', 'code');
+        url.searchParams.append('state', state);
         return url.toString();
     }
     /**
@@ -32,7 +32,7 @@ class AuthDefaultRequest extends AuthRequest_1.AuthRequest {
             user = this.getUserInfo(authToken);
         }
         catch (e) {
-            console.error("getUserInfo error", e);
+            throw new Error('getUserInfo error' + e);
         }
         return user;
     }
@@ -43,11 +43,11 @@ class AuthDefaultRequest extends AuthRequest_1.AuthRequest {
      */
     accessTokenEndpoint(code) {
         const url = new URL(this.source.accessTokenApiEndpoint);
-        url.searchParams.append("client_id", this.config.clientId);
-        url.searchParams.append("client_secret", this.config.clientSecret);
-        url.searchParams.append("grant_type", "authorization_code");
-        url.searchParams.append("code", code);
-        url.searchParams.append("redirect_uri", this.config.redirectUri);
+        url.searchParams.append('client_id', this.config.clientId);
+        url.searchParams.append('client_secret', this.config.clientSecret);
+        url.searchParams.append('grant_type', 'authorization_code');
+        url.searchParams.append('code', code);
+        url.searchParams.append('redirect_uri', this.config.redirectUri);
         return url.toString();
     }
     /**
@@ -57,23 +57,37 @@ class AuthDefaultRequest extends AuthRequest_1.AuthRequest {
      */
     refreshTokenEndpoint(refreshToken) {
         const url = new URL(this.source.refreshTokenEndpoint);
-        url.searchParams.append("client_id", this.config.clientId);
-        url.searchParams.append("client_secret", this.config.clientSecret);
-        url.searchParams.append("grant_type", "refresh_token");
-        url.searchParams.append("refresh_token", refreshToken);
+        url.searchParams.append('client_id', this.config.clientId);
+        url.searchParams.append('client_secret', this.config.clientSecret);
+        url.searchParams.append('grant_type', 'refresh_token');
+        url.searchParams.append('refresh_token', refreshToken);
         return url.toString();
     }
     userInfoEndpoint(authToken) {
         return `${this.source.userInfoApiEndpoint}?access_token=${authToken.accessToken}`;
     }
     async doPostAuthorizationCode(code) {
-        return await axios_1.default.post(this.accessTokenEndpoint(code));
+        let r = {};
+        try {
+            r = await axios_1.default.post(this.accessTokenEndpoint(code));
+        }
+        catch (e) {
+            throw new Error('doPostAuthorizationCode error' + e);
+        }
+        return r;
     }
     async doGetUserInfo(authToken) {
-        return await axios_1.default.get(this.userInfoEndpoint(authToken));
+        let r = {};
+        try {
+            r = await axios_1.default.get(this.userInfoEndpoint(authToken));
+        }
+        catch (e) {
+            throw new Error('doGetUserInfo error' + e);
+        }
+        return r;
     }
     refresh(authToken) {
-        throw new Error("Method not implemented.");
+        throw new Error('Method not implemented.');
     }
 }
 exports.AuthDefaultRequest = AuthDefaultRequest;

@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da8023cf-4f56-4258-8978-77e8318be1ca" name="Changes" comment="" />
+    <list default="true" id="da8023cf-4f56-4258-8978-77e8318be1ca" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/build/src/config/AuthDefaultSource.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/config/AuthDefaultSource.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/config/AuthDefaultSource.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/config/AuthDefaultSource.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/config/AuthDefaultSource.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/config/AuthDefaultSource.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/config/AuthSource.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/config/AuthSource.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/config/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/config/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/index.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/index.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/index.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/request/AuthDefaultRequest.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/request/AuthDefaultRequest.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/request/AuthDefaultRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/request/AuthDefaultRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/request/AuthDefaultRequest.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/request/AuthDefaultRequest.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/request/AuthGoogleRequest.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/request/AuthGoogleRequest.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/request/AuthGoogleRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/request/AuthGoogleRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/request/AuthGoogleRequest.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/request/AuthGoogleRequest.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/request/AuthRequest.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/request/AuthRequest.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/src/request/AuthRequest.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/build/src/request/AuthRequest.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/AuthConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/AuthConfig.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/AuthDefaultSource.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/AuthDefaultSource.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/AuthSource.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/AuthSource.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/request/AuthDefaultRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/request/AuthDefaultRequest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/request/AuthGoogleRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/request/AuthGoogleRequest.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/request/AuthRequest.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/request/AuthRequest.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +47,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="ProjectId" id="2F1NFGlg3eRf5OIstKt2KaV8X4d" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -31,8 +60,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="code.cleanup.on.save" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="settings.editor.selected.configurable" value="actions.on.save" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -64,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1663655527974</updated>
       <workItem from="1663655531371" duration="1000" />
-      <workItem from="1663655599737" duration="9880000" />
+      <workItem from="1663655599737" duration="10740000" />
     </task>
     <servers />
   </component>
@@ -76,7 +109,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/test/test_google_login.ts</url>
-          <line>15</line>
+          <line>17</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="5" />
         </line-breakpoint>

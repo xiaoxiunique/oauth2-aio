@@ -1,12 +1,14 @@
-import {AuthConfig, AuthSource} from "../config";
-import {AuthRequest} from "./AuthRequest";
-import {AuthToken} from "../model/AuthToken";
-import {AuthCallback} from "../model/AuthCallback";
+import {AuthConfig, AuthSource} from '../config';
+import {AuthRequest} from './AuthRequest';
+import {AuthToken} from '../model/AuthToken';
+import {AuthCallback} from '../model/AuthCallback';
 import axios, {AxiosResponse} from 'axios';
 
 export abstract class AuthDefaultRequest extends AuthRequest {
-
-  protected constructor(protected config: AuthConfig, protected source: AuthSource) {
+  protected constructor(
+    protected config: AuthConfig,
+    protected source: AuthSource
+  ) {
     super();
   }
 
@@ -30,10 +32,10 @@ export abstract class AuthDefaultRequest extends AuthRequest {
    */
   authorize(state: string): string {
     const url = new URL(this.source.authorizeApiEndpoint);
-    url.searchParams.append("client_id", this.config.clientId);
-    url.searchParams.append("redirect_uri", this.config.redirectUri);
-    url.searchParams.append("response_type", "code");
-    url.searchParams.append("state", state);
+    url.searchParams.append('client_id', this.config.clientId);
+    url.searchParams.append('redirect_uri', this.config.redirectUri);
+    url.searchParams.append('response_type', 'code');
+    url.searchParams.append('state', state);
     return url.toString();
   }
 
@@ -47,7 +49,7 @@ export abstract class AuthDefaultRequest extends AuthRequest {
     try {
       user = this.getUserInfo(authToken);
     } catch (e) {
-      throw new Error("getUserInfo error" + e);
+      throw new Error('getUserInfo error' + e);
     }
     return user;
   }
@@ -59,11 +61,11 @@ export abstract class AuthDefaultRequest extends AuthRequest {
    */
   protected accessTokenEndpoint(code: string) {
     const url = new URL(this.source.accessTokenApiEndpoint);
-    url.searchParams.append("client_id", this.config.clientId);
-    url.searchParams.append("client_secret", this.config.clientSecret);
-    url.searchParams.append("grant_type", "authorization_code");
-    url.searchParams.append("code", code);
-    url.searchParams.append("redirect_uri", this.config.redirectUri);
+    url.searchParams.append('client_id', this.config.clientId);
+    url.searchParams.append('client_secret', this.config.clientSecret);
+    url.searchParams.append('grant_type', 'authorization_code');
+    url.searchParams.append('code', code);
+    url.searchParams.append('redirect_uri', this.config.redirectUri);
     return url.toString();
   }
 
@@ -74,10 +76,10 @@ export abstract class AuthDefaultRequest extends AuthRequest {
    */
   protected refreshTokenEndpoint(refreshToken: string) {
     const url = new URL(this.source.refreshTokenEndpoint);
-    url.searchParams.append("client_id", this.config.clientId);
-    url.searchParams.append("client_secret", this.config.clientSecret);
-    url.searchParams.append("grant_type", "refresh_token");
-    url.searchParams.append("refresh_token", refreshToken);
+    url.searchParams.append('client_id', this.config.clientId);
+    url.searchParams.append('client_secret', this.config.clientSecret);
+    url.searchParams.append('grant_type', 'refresh_token');
+    url.searchParams.append('refresh_token', refreshToken);
     return url.toString();
   }
 
@@ -90,7 +92,7 @@ export abstract class AuthDefaultRequest extends AuthRequest {
     try {
       r = await axios.post(this.accessTokenEndpoint(code));
     } catch (e) {
-      throw new Error("doPostAuthorizationCode error" +  e);
+      throw new Error('doPostAuthorizationCode error' + e);
     }
     return r;
   }
@@ -100,14 +102,12 @@ export abstract class AuthDefaultRequest extends AuthRequest {
     try {
       r = await axios.get(this.userInfoEndpoint(authToken));
     } catch (e) {
-      throw new Error("doGetUserInfo error" + e);
+      throw new Error('doGetUserInfo error' + e);
     }
     return r;
   }
 
   refresh(authToken: AuthToken): Promise<void> {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
-
-
 }

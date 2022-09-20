@@ -1,5 +1,5 @@
-import { AuthCallback } from "../model/AuthCallback";
-import { AuthToken } from "../model/AuthToken";
+import { AuthCallback } from '../model/AuthCallback';
+import { AuthToken } from '../model/AuthToken';
 export declare abstract class AuthRequest {
     /**
      *  返回授权地址

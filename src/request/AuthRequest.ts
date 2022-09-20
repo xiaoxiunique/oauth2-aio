@@ -1,8 +1,7 @@
-import {AuthCallback} from "../model/AuthCallback";
-import {AuthToken} from "../model/AuthToken";
+import {AuthCallback} from '../model/AuthCallback';
+import {AuthToken} from '../model/AuthToken';
 
 export abstract class AuthRequest {
-
   /**
    *  返回授权地址
    * @param state
@@ -14,7 +13,6 @@ export abstract class AuthRequest {
    * @param callback
    */
   abstract login(callback: AuthCallback): Promise<unknown>;
-
 
   /**
    * refresh

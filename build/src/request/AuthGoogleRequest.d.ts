@@ -1,7 +1,7 @@
-import { AuthDefaultRequest } from "./AuthDefaultRequest";
-import { AuthToken } from "../model/AuthToken";
-import { AuthCallback } from "../model/AuthCallback";
-import { AuthConfig } from "../config";
+import { AuthDefaultRequest } from './AuthDefaultRequest';
+import { AuthToken } from '../model/AuthToken';
+import { AuthCallback } from '../model/AuthCallback';
+import { AuthConfig } from '../config';
 export interface GoogleUserInfo {
     sub: string;
     name: string;

@@ -1,7 +1,7 @@
-import { AuthConfig, AuthSource } from "../config";
-import { AuthRequest } from "./AuthRequest";
-import { AuthToken } from "../model/AuthToken";
-import { AuthCallback } from "../model/AuthCallback";
+import { AuthConfig, AuthSource } from '../config';
+import { AuthRequest } from './AuthRequest';
+import { AuthToken } from '../model/AuthToken';
+import { AuthCallback } from '../model/AuthCallback';
 export declare abstract class AuthDefaultRequest extends AuthRequest {
     protected config: AuthConfig;
     protected source: AuthSource;
