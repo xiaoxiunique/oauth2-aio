@@ -1,3 +1,7 @@
+interface kv {
+  [key: string]: any;
+}
+
 export abstract class AuthSource {
   /**
    * 授权 API
@@ -15,4 +19,12 @@ export abstract class AuthSource {
   abstract userInfoApiEndpoint: unknown;
 
   abstract refreshTokenEndpoint: string;
+
+  mapping?: kv = {
+    accessToken: "access_token",
+    refreshToken: "refresh_token",
+    expiresIn: "expires_in",
+    scope: "scope",
+    tokenType: "token_type"
+  }
 }

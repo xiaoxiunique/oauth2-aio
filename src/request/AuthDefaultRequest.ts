@@ -4,7 +4,7 @@ import {AuthToken} from '../model/AuthToken';
 import {AuthCallback} from '../model/AuthCallback';
 import axios, {AxiosResponse} from 'axios';
 
-export abstract class AuthDefaultRequest extends AuthRequest {
+export abstract class AuthDefaultRequest<U> extends AuthRequest {
   protected constructor(
     protected config: AuthConfig,
     protected source: AuthSource
@@ -17,14 +17,26 @@ export abstract class AuthDefaultRequest extends AuthRequest {
    * @param authCallBack
    * @protected
    */
-  protected abstract getAccessToken(authCallBack: AuthCallback): Promise<any>;
+  protected async getAccessToken(authCallBack: AuthCallback): Promise<AuthToken> {
+    if (!authCallBack.code) {
+      return Promise.reject('code is null');
+    }
+
+    const response = await this.doPostAuthorizationCode(authCallBack.code);
+
+    const keys = Object.keys(this.source.mapping!);
+    return keys.reduce((prev, curr) => {
+      prev[curr] = response.data[this.source.mapping![curr]];
+      return prev;
+    }, {} as { [key: string]: string });
+  }
 
   /**
    * 获取用户信息
    * @param authToken
    * @protected
    */
-  protected abstract getUserInfo(authToken: AuthToken): Promise<unknown>;
+  protected abstract getUserInfo(authToken: AuthToken): Promise<AxiosResponse<U>>;
 
   /**
    * 获取 authorize 地址
@@ -36,6 +48,7 @@ export abstract class AuthDefaultRequest extends AuthRequest {
     url.searchParams.append('redirect_uri', this.config.redirectUri);
     url.searchParams.append('response_type', 'code');
     url.searchParams.append('state', state);
+    url.searchParams.append('scope', this.config.scopes.join(' '));
     return url.toString();
   }
 
@@ -88,9 +101,7 @@ export abstract class AuthDefaultRequest extends AuthRequest {
   }
 
   protected async doPostAuthorizationCode(code: string): Promise<any> {
-    let r: AxiosResponse<any> = {} as any;
-    r = await axios.post(this.accessTokenEndpoint(code));
-    return r;
+    return axios.post(this.accessTokenEndpoint(code));
   }
 
   protected async doGetUserInfo(authToken: AuthToken): Promise<unknown> {

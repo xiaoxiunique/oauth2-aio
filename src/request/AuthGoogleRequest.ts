@@ -15,18 +15,12 @@ export interface GoogleUserInfo {
   locale: string;
 }
 
-export class AuthGoogleRequest extends AuthDefaultRequest {
+export class AuthGoogleRequest extends AuthDefaultRequest<GoogleUserInfo> {
   constructor(config: AuthConfig) {
     super(config, GOOGLE);
   }
 
-  protected async getAccessToken(authCallBack: AuthCallback): Promise<{
-    expiresIn: any;
-    scope: any;
-    accessToken: any;
-    tokenType: any;
-    refreshToken: any;
-  }> {
+  protected async getAccessToken(authCallBack: AuthCallback): Promise<AuthToken> {
     if (!authCallBack.code) {
       return Promise.reject('code is null');
     }
@@ -37,14 +31,14 @@ export class AuthGoogleRequest extends AuthDefaultRequest {
       refreshToken: response.data.refresh_token,
       expiresIn: response.data.expires_in,
       scope: response.data.scope,
-      tokenType: response.data.token_type,
+      tokenType: response.data.token_type
     };
   }
 
-  protected async getUserInfo(authToken: AuthToken): Promise<GoogleUserInfo> {
-    let userInfoRes: AxiosResponse<any> = {} as any;
+  protected async getUserInfo(authToken: AuthToken): Promise<AxiosResponse<GoogleUserInfo>> {
+    let userInfoRes: AxiosResponse<GoogleUserInfo> = {} as any;
 
-    userInfoRes = await axios.post(
+    userInfoRes = await axios.post<GoogleUserInfo>(
       this.userInfoEndpoint(authToken),
       {},
       {
@@ -53,7 +47,7 @@ export class AuthGoogleRequest extends AuthDefaultRequest {
         },
       }
     );
-    return userInfoRes && (userInfoRes.data as GoogleUserInfo);
+    return userInfoRes;
   }
 
   authorize(state: string): string {
