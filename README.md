@@ -1,4 +1,4 @@
-## oauth2 all in one 
+## oauth2 all in one
 本项目参考了 Java 项目 JustAuth 的设计，将所有的第三方登录都整合到一个项目中，方便使用。
 因为 JustAuth 项目是 Java 项目，Node 项目中没有类似的项目，所以本项目就诞生了。
 原项目地址：[JustAuth](https://github.com/justauth/JustAuth)
@@ -11,6 +11,8 @@
 - [x] Twitter
 
 因为我公司只用到了这两个，其他的第三方登录后续会陆续实现。
+
+项目地址：[oauth2-aio](https://github.com/xiaoxiunique/oauth2-aio)
 
 ## 使用方法
 
