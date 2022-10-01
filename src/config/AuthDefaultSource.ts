@@ -28,8 +28,15 @@ const DISCORD: AuthSource = {
     scope: "scope",
     tokenType: "token_type"
   }
-
 }
+
+const BAIDU: AuthSource = {
+  authorizeApiEndpoint: 'https://openapi.baidu.com/oauth/2.0/authorize',
+  accessTokenApiEndpoint: 'https://openapi.baidu.com/oauth/2.0/token',
+  userInfoApiEndpoint: 'https://openapi.baidu.com/rest/2.0/passport/users/getLoggedInUser',
+  refreshTokenEndpoint: 'https://openapi.baidu.com/oauth/2.0/token',
+}
+
 
 const TWITTER: AuthSource = {
   accessTokenApiEndpoint: 'https://api.twitter.com/oauth/access_token',
@@ -38,4 +45,4 @@ const TWITTER: AuthSource = {
   refreshTokenEndpoint: 'https://api.twitter.com/oauth/access_token',
 }
 
-export {GOOGLE, DISCORD, TWITTER};
+export {GOOGLE, DISCORD, TWITTER, BAIDU};

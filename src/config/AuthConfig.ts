@@ -10,6 +10,11 @@ export interface AuthConfig {
   clientSecret: string;
 
   /**
+   * baidu -> deviceId
+   */
+  deviceId?: string;
+
+  /**
    * oauth2 redirect uri
    */
   redirectUri: string;
